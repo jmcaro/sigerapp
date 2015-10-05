@@ -8,6 +8,7 @@ use app\models\BancosSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * BancosController implements the CRUD actions for Bancos model.
