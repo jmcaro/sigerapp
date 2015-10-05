@@ -8,6 +8,7 @@ use app\models\TercerosSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * TercerosController implements the CRUD actions for Terceros model.
