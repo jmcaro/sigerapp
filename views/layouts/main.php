@@ -35,9 +35,11 @@ AppAsset::register($this);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
-                    ['label' => 'Cuentas', 'url' => ['/cuentas']],
-                    ['label' => 'Empresas', 'url' => ['/empresa/index']],
-                    ['label' => 'Bancos', 'url' => ['/bancos']],
+                    ['label' => 'Cuentas', 'url' => ['/cuentas'],'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'Empresas', 'url' => ['/empresa/index'],'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'Bancos', 'url' => ['/bancos'],'visible' => !Yii::$app->user->isGuest],
+    
+
                     Yii::$app->user->isGuest ?
                         ['label' => 'Login', 'url' => ['/site/login']] :
                         ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
