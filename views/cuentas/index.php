@@ -4,6 +4,8 @@ use yii\helpers\Html;
 //use yii\grid\GridView;
 use kartik\grid\GridView;
 use yii\helpers\Url;
+use yii\bootstrap\Modal;
+
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\CuentasSearch */
@@ -15,7 +17,17 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="cuentas-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php
+    Modal::begin([
+    'id'=>'modal',
+    'size'=>'modal-lg',    
+]);
+
+echo "<div id='modalContent'></div>" ;
+
+Modal::end();
+//echo Html::button('Modal', ['value'=>Url::to(['cuentas/create']), 'class'=>'btn btn-success', 'id'=>'modalForm' ])
+// echo $this->render('_search', ['model' => $searchModel]); ?>
 
    
 
@@ -77,10 +89,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'panel' => [
                 'heading'=>'<h3 class="panel-title"><i class="glyphicon glyphicon-globe"></i> Cuentas de cobro</h3>',
                 'type'=>'success',
-                'before'=>Html::a('<i class="glyphicon glyphicon-plus"></i> Crear Cuenta', ['create'], ['class' => 'btn btn-success'])." "
-                         .Html::a('<i class="glyphicon glyphicon-plus"></i> Crear Banco', ['/bancos/create'], ['class' => 'btn btn-success'])." "
-                         .Html::a('<i class="glyphicon glyphicon-plus"></i> Crear Tercero', ['/terceros/create'], ['class' => 'btn btn-success']),
-
+                'before'=>Html::button('<i class="glyphicon glyphicon-plus"></i> Crear Cuenta', ['value'=>Url::to(['cuentas/create']), 'class'=>'btn btn-success mod', 'id'=>'modalForm' ])." "
+                         .Html::button('<i class="glyphicon glyphicon-plus"></i> Crear Banco', ['value'=>Url::to(['bancos/create']), 'class'=>'btn btn-success mod', 'id'=>'modalForm' ])." "
+                         .Html::button('<i class="glyphicon glyphicon-plus"></i> Crear Tercero', ['value'=>Url::to(['terceros/create']), 'class'=>'btn btn-success mod', 'id'=>'modalForm' ]),
                 'after'=>Html::a('<i class="glyphicon glyphicon-repeat"></i> Reset Grid', ['index'], ['class' => 'btn btn-info']),
                 'footer'=>false
             ]
