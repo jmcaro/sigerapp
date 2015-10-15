@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id_banco',
             'numero_cuenta',
-            'titular',
+            'idEmpresa.nombre',
             'banco',
             'tipo_cuenta',
         ],
